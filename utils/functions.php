@@ -16,7 +16,7 @@ require_once plugin_dir_path(__DIR__) . '/admin/templates/tickets-list.php';
 require_once plugin_dir_path(__DIR__) . '/utils/formsubmission/form.php';
 
 // Backend Scripts
-function clt_admin_style() {
+function rmi_admin_style() {
   wp_enqueue_style( 'backendStyle', plugins_url( '../src/css/bck-style.css', __FILE__ ), array(), false );
   wp_enqueue_script( 'backendScript', plugins_url( '../src//js/bck-script.js', __FILE__ ), array(), '1.0.0', true ); 
   wp_localize_script( 'backendScript', 'ajax_variables', array(
@@ -24,7 +24,7 @@ function clt_admin_style() {
     'nonce'  => wp_create_nonce( 'my-ajax-nonce' ),
   ));
 }
-add_action('admin_enqueue_scripts', 'clt_admin_style');
+add_action('admin_enqueue_scripts', 'rmi_admin_style');
 
 // Frontend Scripts
 function rmi_frontend_script() { 
