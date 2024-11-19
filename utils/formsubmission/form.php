@@ -6,7 +6,7 @@
  * 
  */
 
-function submit_ticket_form() {
+function submit_rmi_form() {
     check_ajax_referer('my-ajax-nonce', 'nonce');
 
     global $wpdb;

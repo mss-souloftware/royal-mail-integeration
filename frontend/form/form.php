@@ -6,7 +6,7 @@
  * 
 */
 
-function ticketing_frontend()
+function rmi_frontend()
 {
     ob_start(); ?>
 

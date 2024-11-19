@@ -27,7 +27,7 @@ function clt_admin_style() {
 add_action('admin_enqueue_scripts', 'clt_admin_style');
 
 // Frontend Scripts
-function ticketing_frontend_script() { 
+function rmi_frontend_script() { 
     wp_enqueue_script( 'frontenScript', plugins_url( '../src/js/script.js', __FILE__ ), ['jquery'], null, true ); 
     wp_enqueue_style( 'frontenStyle', plugins_url( '../src/css/style.css', __FILE__ ), array(), false );
    
@@ -36,17 +36,17 @@ function ticketing_frontend_script() {
       'nonce'          => wp_create_nonce( 'my-ajax-nonce' )
     ));
   }
-  add_action( 'wp_enqueue_scripts', 'ticketing_frontend_script' ); 
+  add_action( 'wp_enqueue_scripts', 'rmi_frontend_script' ); 
 
 
-add_shortcode( 'ticketing-form', 'ticketing_frontend' );
+add_shortcode( 'rm-step-form', 'rmi_frontend' );
 
 // Hook to 'admin_menu' action to create menus.
 add_action('admin_menu', 'custom_plugin_menu');
 
 // Ticket Form submission
-add_action('wp_ajax_submit_ticket_form', 'submit_ticket_form');
-add_action('wp_ajax_nopriv_submit_ticket_form', 'submit_ticket_form');
+add_action('wp_ajax_submit_rmi_form', 'submit_rmi_form');
+add_action('wp_ajax_nopriv_submit_rmi_form', 'submit_rmi_form');
 
 
 // Add an AJAX handler for deleting a single ticket
@@ -75,8 +75,8 @@ function delete_single_ticket() {
 }
 
 // Register AJAX action for updating ticket status
-add_action('wp_ajax_update_ticket_status', 'update_ticket_status');
-function update_ticket_status() {
+add_action('wp_ajax_update_rmi_form_status', 'update_rmi_form_status');
+function update_rmi_form_status() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'custom_ticket_plugin';
 
@@ -107,10 +107,10 @@ function update_ticket_status() {
 
 function custom_plugin_menu() {
     add_menu_page(
-        'Ticketing System',         
-        'Ticketing System',         
+        'RoyalMail System',         
+        'RoyalMail System',         
         'manage_options',        
-        'cts-ticket',       
+        'rmi-system',       
         'custom_plugin_page',     
         'dashicons-admin-generic',
         6                         
@@ -118,7 +118,7 @@ function custom_plugin_menu() {
 
     // Add submenu pages
     add_submenu_page(
-        'cts-ticket',        
+        'rmi-system',        
         'Settings Page',         
         'Settings',              
         'manage_options',        
