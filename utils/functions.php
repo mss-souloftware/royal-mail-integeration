@@ -111,7 +111,7 @@ function custom_plugin_menu() {
         'RoyalMail System',         
         'manage_options',        
         'rmi-system',       
-        'custom_plugin_page',     
+        'rmi_render_submissions',     
         'dashicons-admin-generic',
         6                         
     );

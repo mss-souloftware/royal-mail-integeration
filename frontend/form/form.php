@@ -21,6 +21,7 @@ function rmi_frontend()
             <!-- Personal Information -->
             <div class="form-section active" data-section="1">
                 <h3 class="section-title">Who is applying for the LFD?</h3>
+                <h3 class="section-title">Who is applying for the LFD?</h3>
                 <p class="peraType"></p>
                 <div class="form-group">
                     <div class="formFlex">
